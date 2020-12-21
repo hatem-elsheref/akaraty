@@ -105,7 +105,7 @@
                                     @auth
                                         <li class="menu-item"><a class="menu-link" href="{{route('account')}}"><div>Profile</div></a></li>
                                     @unless(auth()->user()->role == CUSTOMER)
-                                        <li class="menu-item"><a class="menu-link" href="{{route('admin')}}"><div>Dashboard</div></a></li>
+                                        <li class="menu-item"><a class="menu-link" href="{{route('dashboard')}}"><div>Dashboard</div></a></li>
                                     @endunless
                                         <li class="menu-item"><a class="menu-link" href="javascript:void(0)" onclick="document.getElementById('__logout').submit()"><div>Logout</div></a></li>
                                     @endauth

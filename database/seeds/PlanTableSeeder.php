@@ -16,6 +16,6 @@ class PlanTableSeeder extends Seeder
             array('title'=>'Most Popular','name'=>'Professional','period'=>'6','price'=>26),
             array('title'=>'Full Featured','name'=>'Enterprise','period'=>'12','price'=>49)
         ];
-        \App\Plan::insert($plans);
+        \App\Models\Plan::insert($plans);
     }
 }

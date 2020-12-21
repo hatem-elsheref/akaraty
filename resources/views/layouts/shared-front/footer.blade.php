@@ -12,7 +12,7 @@
 
                     <div class="widget clearfix">
 
-                        <img src="theme/demos/real-estate/images/logo@2x.png" style="position: relative; opacity: 0.85; left: -10px; max-height: 80px; margin-bottom: 20px;" alt="Footer Logo">
+                        <img src="{{asset('theme/demos/real-estate/images/logo@2x.png')}}" style="position: relative; opacity: 0.85; left: -10px; max-height: 80px; margin-bottom: 20px;" alt="Footer Logo">
 
                         <p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards with a Retina &amp; Responsive Approach. Browse the amazing Features this template offers.</p>
 
@@ -114,19 +114,16 @@
 ============================================= -->
 <script src="{{asset('theme/js/jquery.js')}}"></script>
 <script src="{{asset('theme/js/plugins.min.js')}}"></script>
-
 <!-- Bootstrap Select Plugin -->
 <script src="{{asset('theme/js/components/bs-select.js')}}"></script>
-
 <!-- Bootstrap Switch Plugin -->
 <script src="{{asset('theme/js/components/bs-switches.js')}}"></script>
-
 <!-- Range Slider Plugin -->
 <script src="{{asset('theme/js/components/rangeslider.min.js')}}"></script>
-
 <!-- Footer Scripts
 ============================================= -->
 <script src="{{asset('theme/js/functions.js')}}"></script>
+<script src="{{adminAssets('js/swal.js')}}"></script>
 
 <script>
 
@@ -156,7 +153,44 @@
             jQuery('.expand-link').slideToggle(400);
         });
 
+
     });
+    function sureTheTransaction(){
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, confirm it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var temporary_key='{{uniqid()}}';
+                var token='{{csrf_token()}}';
+                $.ajax({
+                    url:'{{route('checkout.confirm')}}',
+                    method:'POST',
+                    dataType: 'json', // type of response data,
+                    data:{'tmp_key':temporary_key,'_token':token},
+                    success:function (response){
+                        $('#temporary_key').val(temporary_key)
+                        if(response.status){
+                            $('#completeTheTransaction').submit();
+                        }else{
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'Try Again ..',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    }
+                });
+            }
+        })
+    }
 
 
 </script>

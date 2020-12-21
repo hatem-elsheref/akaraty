@@ -30,10 +30,8 @@
 
                         <div class="heading-block border-0">
                             <h3>{{auth()->user()->name}}</h3>
-                            <span>Role : {{auth()->user()->role}}</span><br>
-                            @if(auth()->user()->role == OWNER)
-                                <span>Plan : {{auth()->user()->plan->name}}</span>
-                            @endif
+                            <span>Role : {{auth()->user()->role}}  @if(auth()->user()->role == OWNER)  / Plan : {{auth()->user()->plan->name}}@endif</span>
+
 
                         </div>
 

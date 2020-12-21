@@ -39,7 +39,8 @@ Route::group(['namespace'=>'Front'],function (){
 
     // subscribe to plan and checkout
     Route::get('/subscribe-to-plan/{plan}', 'ProcessController@subscribeView')->name('checkout.plan.show')->middleware('auth');
-
+    Route::post('/subscribe-to-plan/{plan}', 'ProcessController@checkoutPlan')->name('checkout.plan')->middleware('auth');
+    Route::post('/check-before-subscribe-to-plan', 'ProcessController@ConfirmToChangeThePlan')->name('checkout.confirm');
 
 
 
