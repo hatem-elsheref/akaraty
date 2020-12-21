@@ -36,7 +36,6 @@ Route::group(['namespace'=>'Front'],function (){
     Route::get('/real-estate/details/{slug}', 'RealEstateController@getDetails')->name('real_estate.details');
     Route::get('/real-estate/search', 'RealEstateController@searchFilter')->name('real_estate.search');
     Route::post('/contact-owner', 'RealEstateController@contact')->name('owner.send');
-
     // subscribe to plan and checkout
     Route::get('/subscribe-to-plan/{plan}', 'ProcessController@subscribeView')->name('checkout.plan.show')->middleware('auth');
     Route::post('/subscribe-to-plan/{plan}', 'ProcessController@checkoutPlan')->name('checkout.plan')->middleware('auth');
