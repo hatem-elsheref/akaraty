@@ -1,14 +1,32 @@
 @extends('layouts.frontend-master')
+
+@section('js')
+    <script>
+        $(document).ready(function (){
+           let price=$('#real-estate-price').val();
+           if (Number.isInteger(Math.abs(Math.ceil(price)))){
+               $('#months').on('keyup',function (){
+                   let months=$(this).val();
+                   let total=months*price;
+                   $('#put-price-here').text(total);
+               });
+           }else{
+               alert('Enter A Valid Value For Months')
+           }
+
+        });
+    </script>
+@endsection
 @section('content')
     <!-- Page Title
     ============================================= -->
     <section id="page-title" class="page-title-parallax page-title-dark page-title-center include-header include-topbar" style="background: url('{{asset('theme/demos/real-estate/images/about-us/page-title.jpg')}}') no-repeat center center / cover; padding: 140px 0;" data-center="background-position: 0px 50%;" data-top-bottom="background-position:0px 0px;">
 
         <div class="container clearfix">
-            <h1>About Us</h1>
+            <h1>Checkout</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('website')}}">Home</a></li>
-                <li class="breadcrumb-item active">About Us</li>
+                <li class="breadcrumb-item active">Booking-Buying</li>
             </ol>
         </div>
 
@@ -23,229 +41,149 @@
             <div class="container clearfix">
                 <div class="row col-mb-50 gutter-50">
                     <div class="col-lg-6">
+                        @if(session('response'))
+                            <div class="alert alert-{{session('response')['type']}}">{{session('response')['message']}}</div>
+
+                        @endif
                         <h3>Billing</h3>
-                        <form id="billing-form" name="billing-form" class="row mb-0" action="#" method="post">
+                        <form   class="row mb-0" action="{{route('booking.checkout.process')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="real_estate_id" value="{{$realEstate->id}}">
+                            <input type="hidden" name="price" id="real-estate-price" value="{{$realEstate->price}}">
                             <div class="col-md-6 form-group">
                                 <label for="first_name">First Name:</label>
                                 <input type="text" id="first_name" name="first_name" value="{{old('first_name')}}" class="sm-form-control">
+                                <span class="text-danger"> @error('first_name') {{$message}} @enderror</span>
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="{{old('last_name')}}">Last Name:</label>
                                 <input type="text" id="last_name" name="last_name" value="{{old('last_name')}}" class="sm-form-control">
+                                <span class="text-danger"> @error('last_name') {{$message}} @enderror</span>
                             </div>
 
                             <div class="w-100"></div>
-                            <div class="col-md-6 form-group">
-                                <label for="country">Country:</label>
-                                <select id="country" name="country" class="sm-form-control">
-                                    @foreach($countries as $country)
-                                        <option value="{{$country->name}}" {{$country->name==old('country')?'selected':''}}>{{$country->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="country">Country:</label>
+                                    <select id="country" name="country" class="sm-form-control">
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->name}}" {{$country->name==old('country')?'selected':''}}>{{$country->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger"> @error('country') {{$message}} @enderror</span>
+                                </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="postcode">Postcode:</label>
                                 <input type="number" id="postcode" name="postcode" value="{{old('postcode')}}" class="sm-form-control">
+                                <span class="text-danger"> @error('postcode') {{$message}} @enderror</span>
                             </div>
                             <div class="w-100"></div>
                             <div class="col-12 form-group">
                                 <label for="address">Address:</label>
                                 <input type="text" id="address" name="address" value="{{old('address')}}" class="sm-form-control">
+                                <span class="text-danger"> @error('address') {{$message}} @enderror</span>
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="email">Email Address:</label>
                                 <input type="email" id="email" name="email" value="{{old('email')}}" class="sm-form-control">
+                                <span class="text-danger"> @error('email') {{$message}} @enderror</span>
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="phone">Phone:</label>
                                 <input type="text" id="phone" name="phone" value="{{old('phone')}}" class="sm-form-control">
+                                <span class="text-danger"> @error('phone') {{$message}} @enderror</span>
                             </div>
 
+                            @if($realEstate->type == 'land')
+                                <div class="col-md-6 form-group">
+                                    <label for="category">Category:</label>
+                                    <select id="category" name="category" class="sm-form-control" disabled>
+                                        <option value="buy" selected disabled>Buy</option>
+                                    </select>
+                                    <span class="text-danger"> @error('category') {{$message}} @enderror</span>
+                                </div>
+                                @elseif($realEstate->category == 'rent')
+                                <div class="col-md-6 form-group">
+                                    <label for="category">Category:</label>
+                                    <select id="category" name="category" class="sm-form-control" disabled>
+                                        <option value="rent" disabled selected>Rent</option>
+                                    </select>
+                                    <span class="text-danger"> @error('category') {{$message}} @enderror</span>
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <label for="months">Months:</label>
+                                    <input type="number" min="1" step="1" id="months" name="months" value="{{old('months')}}" class="sm-form-control">
+                                    <span class="text-danger"> @error('months') {{$message}} @enderror</span>
+                                </div>
+                            @else
+                                <div class="col-md-6 form-group">
+                                    <label for="category">Category:</label>
+                                    <select id="category" name="category" class="sm-form-control" disabled>
+                                        <option value="buy" disabled selected>Buy</option>
+                                    </select>
+                                    <span class="text-danger"> @error('category') {{$message}} @enderror</span>
+                                </div>
+                            @endif
                             <div class="w-100"></div>
                             <div class="col-md-6 form-group">
                                 <label for="method">Payment Method:</label>
-                                <select id="method" name="method" class="sm-form-control">
-                                    <option value="cod" {{'cod'==old('method')?'selected':''}}>Cache On Delivery</option>
-                                    <option value="gateway" {{'gateway'==old('method')?'selected':''}}>Gateway</option>
+                                <select id="gateway" name="gateway" class="sm-form-control">
+                                    <option disabled selected>__SELECT_METHOD__</option>
+                                    <option value="cod" {{'cod'==old('gateway')?'selected':''}}>Cache On Delivery</option>
+                                    <option value="gateway" {{'gateway'==old('gateway')?'selected':''}}>Gateway</option>
                                 </select>
+                                <span class="text-danger"> @error('gateway') {{$message}} @enderror</span>
                             </div>
+                            <div class="col-md-6 form-group">
+                                <label for="process">Process:</label>
+                                <button type="submit" class="sm-form-control button button-3d float-right text-light">Process</button>
+                            </div>
+
+
                         </form>
                     </div>
 
                     <div class="col-lg-6">
-                        <h3>Shipping Address</h3>
-
-                        <form id="shipping-form" name="shipping-form" class="row mb-0" action="#" method="post">
-
-                            <div class="col-md-6 form-group">
-                                <label for="shipping-form-name">Name:</label>
-                                <input type="text" id="shipping-form-name" name="shipping-form-name" value="" class="sm-form-control">
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <label for="shipping-form-lname">Last Name:</label>
-                                <input type="text" id="shipping-form-lname" name="shipping-form-lname" value="" class="sm-form-control">
-                            </div>
-
-                            <div class="w-100"></div>
-
-                            <div class="col-12 form-group">
-                                <label for="shipping-form-companyname">Company Name:</label>
-                                <input type="text" id="shipping-form-companyname" name="shipping-form-companyname" value="" class="sm-form-control">
-                            </div>
-
-                            <div class="col-12 form-group">
-                                <label for="shipping-form-address">Address:</label>
-                                <input type="text" id="shipping-form-address" name="shipping-form-address" value="" class="sm-form-control">
-                            </div>
-
-                            <div class="col-12 form-group">
-                                <input type="text" id="shipping-form-address2" name="shipping-form-adress" value="" class="sm-form-control">
-                            </div>
-
-                            <div class="col-12 form-group">
-                                <label for="shipping-form-city">City / Town</label>
-                                <input type="text" id="shipping-form-city" name="shipping-form-city" value="" class="sm-form-control">
-                            </div>
-
-                            <div class="col-12 form-group">
-                                <label for="shipping-form-message">Notes <small>*</small></label>
-                                <textarea class="sm-form-control" id="shipping-form-message" name="shipping-form-message" rows="6" cols="30"></textarea>
-                            </div>
-
-                        </form>
-                    </div>
-
-                    <div class="w-100"></div>
-
-                    <div class="col-lg-6">
-                        <h4>Your Orders</h4>
-
-                        <div class="table-responsive">
-                            <table class="table cart">
-                                <thead>
-                                <tr>
-                                    <th class="cart-product-thumbnail">&nbsp;</th>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="cart-product-quantity">Quantity</th>
-                                    <th class="cart-product-subtotal">Total</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="cart_item">
-                                    <td class="cart-product-thumbnail">
-                                        <a href="#"><img src="images/shop/thumbs/small/dress-3.jpg" alt="Pink Printed Dress" width="64" height="64"></a>
-                                    </td>
-
-                                    <td class="cart-product-name">
-                                        <a href="#">Pink Printed Dress</a>
-                                    </td>
-
-                                    <td class="cart-product-quantity">
-                                        <div class="quantity clearfix">
-                                            1x2
-                                        </div>
-                                    </td>
-
-                                    <td class="cart-product-subtotal">
-                                        <span class="amount">$39.98</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart_item">
-                                    <td class="cart-product-thumbnail">
-                                        <a href="#"><img src="images/shop/thumbs/small/shoes-2.jpg" alt="Checked Canvas Shoes" width="64" height="64"></a>
-                                    </td>
-
-                                    <td class="cart-product-name">
-                                        <a href="#">Checked Canvas Shoes</a>
-                                    </td>
-
-                                    <td class="cart-product-quantity">
-                                        <div class="quantity clearfix">
-                                            1x1
-                                        </div>
-                                    </td>
-
-                                    <td class="cart-product-subtotal">
-                                        <span class="amount">$24.99</span>
-                                    </td>
-                                </tr>
-                                <tr class="cart_item">
-                                    <td class="cart-product-thumbnail">
-                                        <a href="#"><img src="images/shop/thumbs/small/tshirt-2.jpg" alt="Pink Printed Dress" width="64" height="64"></a>
-                                    </td>
-
-                                    <td class="cart-product-name">
-                                        <a href="#">Blue Men Tshirt</a>
-                                    </td>
-
-                                    <td class="cart-product-quantity">
-                                        <div class="quantity clearfix">
-                                            1x3
-                                        </div>
-                                    </td>
-
-                                    <td class="cart-product-subtotal">
-                                        <span class="amount">$41.97</span>
-                                    </td>
-                                </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <h4>Cart Totals</h4>
+                        <h4>Real Estate Details</h4>
 
                         <div class="table-responsive">
                             <table class="table cart">
                                 <tbody>
                                 <tr class="cart_item">
-                                    <td class="border-top-0 cart-product-name">
-                                        <strong>Cart Subtotal</strong>
-                                    </td>
-
-                                    <td class="border-top-0 cart-product-name">
-                                        <span class="amount">$106.94</span>
-                                    </td>
+                                    <td class="border-top-0 cart-product-name"><strong>Real Estate Name</strong></td>
+                                    <td class="border-top-0 cart-product-name"><span>{{$realEstate->title}}</span></td>
                                 </tr>
-                                <tr class="cart_item">
-                                    <td class="cart-product-name">
-                                        <strong>Shipping</strong>
-                                    </td>
 
-                                    <td class="cart-product-name">
-                                        <span class="amount">Free Delivery</span>
-                                    </td>
+
+                                <tr class="cart_item">
+                                    <td class="border-top-0 cart-product-name"><strong>Real Estate Owner</strong></td>
+                                    <td class="border-top-0 cart-product-name"><span>{{$realEstate->owner->name}}</span></td>
                                 </tr>
+                                @if($realEstate->category == 'rent')
+                                    <tr class="cart_item">
+                                        <td class="border-top-0 cart-product-name"><strong>Real Estate Price/Month</strong></td>
+                                        <td class="border-top-0 cart-product-name"><span>{{$realEstate->price}} </span>{{ currency()}}</td>
+                                    </tr>
+                                @else
+                                    <tr class="cart_item">
+                                        <td class="border-top-0 cart-product-name"><strong>Real Estate Buying Price</strong></td>
+                                        <td class="border-top-0 cart-product-name"><span>{{$realEstate->price}} </span>{{ currency()}}</td>
+                                    </tr>
+                                @endif
                                 <tr class="cart_item">
-                                    <td class="cart-product-name">
-                                        <strong>Total</strong>
-                                    </td>
-
-                                    <td class="cart-product-name">
-                                        <span class="amount color lead"><strong>$106.94</strong></span>
-                                    </td>
+                                    <td class="border-top-0 cart-product-name"><strong>Plan Price</strong></td>
+                                    <td class="border-top-0 cart-product-name"><span id="put-price-here">0</span> {{currency()}}</td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
 
                         <div class="accordion clearfix">
-                            <div class="accordion-header accordion-active">
-                                <div class="accordion-icon">
-                                    <i class="accordion-closed icon-line-minus"></i>
-                                    <i class="accordion-open icon-line-check"></i>
-                                </div>
-                                <div class="accordion-title">
-                                    Direct Bank Transfer
-                                </div>
-                            </div>
+
                             <div class="accordion-content clearfix" style="display: block;">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</div>
 
                             <div class="accordion-header">
@@ -254,7 +192,7 @@
                                     <i class="accordion-open icon-line-check"></i>
                                 </div>
                                 <div class="accordion-title">
-                                    Cheque Payment
+                                    Cache On Delivery
                                 </div>
                             </div>
                             <div class="accordion-content clearfix" style="display: none;">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum.</div>
@@ -265,13 +203,14 @@
                                     <i class="accordion-open icon-line-check"></i>
                                 </div>
                                 <div class="accordion-title">
-                                    Paypal
+                                    Payment Gateway
                                 </div>
                             </div>
                             <div class="accordion-content clearfix" style="display: none;">Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur.</div>
                         </div>
-                        <a href="#" class="button button-3d float-right">Place Order</a>
                     </div>
+
+
                 </div>
             </div>
         </div>

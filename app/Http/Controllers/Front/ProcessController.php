@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Mail\NewOrder;
+use App\Models\Order;
+use App\Models\RealEstate;
 use App\Models\Subscribe;
 use App\Models\Transaction;
 use App\Models\User;
@@ -10,6 +13,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Models\Plan;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
+
 class ProcessController extends Controller
 {
 
@@ -121,6 +127,52 @@ class ProcessController extends Controller
             abort(500);
 //            echo json_encode(['status'=>false]);
         }
+    }
+
+    public function checkoutView($id){
+        $realEstate=RealEstate::findOrFail($id);
+        return view('front.checkout-real-estate',compact('realEstate'));
+    }
+
+    public function checkoutProcess(Request $request){
+        $realEstate=RealEstate::findOrFail($request->real_estate_id);
+        $request->gateway=strtolower($request->gateway);
+        $request->validate([
+            'real_estate_id'=>'required|numeric',
+            'first_name'    =>'required|string|max:191',
+            'last_name'     =>'required|string|max:191',
+            'country'       =>'required|string|exists:countries,name',
+            'address'       =>'required|string|max:191',
+            'postcode'      =>'required|numeric',
+            'phone'         =>'required|numeric',
+            'email'         =>['required','email','max:191',new ValidateEmail()],
+            'gateway'       =>'required|in:cod,gateway',
+            'months'        =>[Rule::requiredIf($realEstate->category == 'rent'),'nullable','numeric','min:1']
+        ]);
+
+        $validatedData=$request->except('_token');
+        $validatedData['owner_id']=$realEstate->user_id;
+        $validatedData['user_id'] =auth()->id();
+        $validatedData['method']  =strtoupper($request->gateway);
+        $validatedData['status']  ='pending';
+        $validatedData['months']  =$request->months;
+        $validatedData['total']   =$request->months*$realEstate->price;
+
+
+        $condition=Order::where('user_id',auth()->id())->where('real_estate_id',$request->real_estate_id)->where('status','pending')->count();
+       if ($condition == 0){
+           $order=Order::create($validatedData);
+           $message="Order Send Successfully Check You Inbox Soon After Owner Approve";
+           $type='success';
+           Mail::to($realEstate->owner->email)->send(new NewOrder($order));
+           success($message);
+       }else{
+           $message="Failed Operation You Already Ordered This Item";
+           $type='danger';
+           fail($message);
+       }
+
+       return redirect()->back()->with('response',['type'=>$type,'message'=>$message]);
     }
 
 }

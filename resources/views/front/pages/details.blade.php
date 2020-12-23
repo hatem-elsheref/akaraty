@@ -233,21 +233,22 @@
                                         <div class="card-header">Reserve Now</div>
                                         <div class="card-body">
                                             <div class="form-result"></div>
-                                            <form id="quick-contact-form" name="quick-contact-form" action="include/form.php" method="post" class="quick-contact-form mb-0">
-                                                <div class="form-process">
-                                                    <div class="css3-spinner">
-                                                        <div class="css3-spinner-scaler"></div>
-                                                    </div>
-                                                </div>
+{{--                                            <form id="quick-contact-form" name="quick-contact-form" action="include/form.php" method="post" class="quick-contact-form mb-0">--}}
+{{--                                                <div class="form-process">--}}
+{{--                                                    <div class="css3-spinner">--}}
+{{--                                                        <div class="css3-spinner-scaler"></div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
 
-                                                <input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
-                                                <input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
-                                                <input type="number" class="required sm-form-control number input-block-level" id="quick-contact-form-number" name="quick-contact-form-number" value="" placeholder="Phone Number" />
-                                                <textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-                                                <input type="text" class="d-none" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
-                                                <input type="hidden" name="prefix" value="quick-contact-form-">
-                                                <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button  button-rounded btn-block m-0" value="submit">Book Now</button>
-                                            </form>
+{{--                                                <input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />--}}
+{{--                                                <input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />--}}
+{{--                                                <input type="number" class="required sm-form-control number input-block-level" id="quick-contact-form-number" name="quick-contact-form-number" value="" placeholder="Phone Number" />--}}
+{{--                                                <textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>--}}
+{{--                                                <input type="text" class="d-none" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />--}}
+{{--                                                <input type="hidden" name="prefix" value="quick-contact-form-">--}}
+{{--                                                <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button  button-rounded btn-block m-0" value="submit">Book Now</button>--}}
+{{--                                            </form>--}}
+                                            <a href="{{route('booking.checkout.view',$real_state->id)}}" id="quick-contact-form-submit"  class="button  button-rounded btn-block m-0 text-center">Book Now</a>
                                         </div>
                                     </div>
 

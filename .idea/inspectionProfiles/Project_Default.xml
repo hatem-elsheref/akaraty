@@ -15,5 +15,6 @@
         <language minSize="353" name="PHP" />
       </Languages>
     </inspection_tool>
+    <inspection_tool class="PhpArrayUsedOnlyForWriteInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   </profile>
 </component>
