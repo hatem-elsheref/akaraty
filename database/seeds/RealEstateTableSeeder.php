@@ -14,7 +14,7 @@ class RealEstateTableSeeder extends Seeder
           foreach (range(1,20) as $iteration){
             $title=$facker->sentence(2);
             $category=['buy','rent'];
-            $status=['available','busy'];
+            $status=['available','busy','sold'];
             $type=['apartment','building'];
 
             $randomForCategory  =array_rand($category,1);
@@ -43,10 +43,7 @@ class RealEstateTableSeeder extends Seeder
 
 
 
-            if ($type[$randomForType] == 'building')
-                $floors=rand(1,5);
-            else
-                $floors=null;
+
 
 
             $item=RealEstate::create([
@@ -69,30 +66,31 @@ class RealEstateTableSeeder extends Seeder
                 'has_kitchen'                   =>true,
                 'has_parking'                   =>true,
                 'has_garage'                    =>true,
-                'floors_number'                 =>$floors,
+                'floors_number'                 =>rand(1,5),
+                'flats_number'                  =>rand(1,5),
                 'bed_room_number'               =>3,
                 'bath_room_number'              =>2,
                 'living_room_number'            =>5,
-                'lat'                           =>$facker->latitude,
-                'long'                          =>$facker->longitude,
-                'video'                         =>$facker->word,
+//                'lat'                           =>$facker->latitude,
+//                'long'                          =>$facker->longitude,
+//                'video'                         =>$facker->word,
             ]);
             $images=[
                 [
-                    'src'=>'uploads/real_states/'.$item->id.'/1.jpg',
+                    'src'=>'uploads/real_estates/'.$item->id.'/1.jpg',
                     'real_estate_id'=>$item->id
                 ],
                 [
-                    'src'=>'uploads/real_states/'.$item->id.'/2.jpg',
+                    'src'=>'uploads/real_estates/'.$item->id.'/2.jpg',
                     'real_estate_id'=>$item->id
                 ],
                 [
-                    'src'=>'uploads/real_states/'.$item->id.'/3.jpg',
+                    'src'=>'uploads/real_estates/'.$item->id.'/3.jpg',
                     'real_estate_id'=>$item->id
                 ],
             ];
             Image::insert($images);
-            $path='uploads/real_states/'.$item->id;
+            $path='uploads/real_estates/'.$item->id;
               \Illuminate\Support\Facades\Storage::disk('my_desk')->deleteDirectory($path);
               \Illuminate\Support\Facades\Storage::disk('my_desk')->makeDirectory($path);
               \Illuminate\Support\Facades\Storage::disk('my_desk')->copy('assets/facker/1.jpg',$path.'/1.jpg');
@@ -139,26 +137,26 @@ class RealEstateTableSeeder extends Seeder
                 'bed_room_number'               =>null,
                 'bath_room_number'              =>null,
                 'living_room_number'            =>null,
-                'lat'                           =>$facker->latitude,
-                'long'                          =>$facker->longitude,
-                'video'                         =>$facker->word,
+//                'lat'                           =>$facker->latitude,
+//                'long'                          =>$facker->longitude,
+//                'video'                         =>$facker->word,
             ]);
             $images=[
                 [
-                    'src'=>'uploads/real_states/'.$item->id.'/1.jpg',
+                    'src'=>'uploads/real_estates/'.$item->id.'/1.jpg',
                     'real_estate_id'=>$item->id
                 ],
                 [
-                    'src'=>'uploads/real_states/'.$item->id.'/2.jpg',
+                    'src'=>'uploads/real_estates/'.$item->id.'/2.jpg',
                     'real_estate_id'=>$item->id
                 ],
                 [
-                    'src'=>'uploads/real_states/'.$item->id.'/3.jpg',
+                    'src'=>'uploads/real_estates/'.$item->id.'/3.jpg',
                     'real_estate_id'=>$item->id
                 ],
             ];
             Image::insert($images);
-            $path='uploads/real_states/'.$item->id;
+            $path='uploads/real_estates/'.$item->id;
               \Illuminate\Support\Facades\Storage::disk('my_desk')->deleteDirectory($path);
               \Illuminate\Support\Facades\Storage::disk('my_desk')->makeDirectory($path);
             \Illuminate\Support\Facades\Storage::disk('my_desk')->copy('assets/facker/1.jpg',$path.'/1.jpg');

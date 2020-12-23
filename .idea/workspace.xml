@@ -2,8 +2,140 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3040231-a4eb-4f39-a4b9-83e69b7c9408" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/create_building.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/create_land.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/edit_building.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/edit_land.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/owner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/RealEstateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/RealEstateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/RealEstate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/RealEstate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_18_224532_create_real_estates_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_18_224532_create_real_estates_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RealEstateTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RealEstateTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/1/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/1/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/1/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/10/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/10/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/10/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/11/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/11/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/11/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/12/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/12/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/12/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/13/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/13/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/13/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/14/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/14/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/14/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/15/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/15/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/15/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/16/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/16/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/16/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/17/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/17/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/17/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/18/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/18/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/18/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/19/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/19/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/19/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/2/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/2/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/2/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/20/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/20/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/20/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/21/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/21/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/21/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/22/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/22/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/22/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/23/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/23/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/23/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/24/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/24/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/24/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/25/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/25/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/25/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/26/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/26/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/26/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/27/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/27/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/27/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/28/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/28/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/28/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/29/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/29/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/29/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/3/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/3/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/3/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/30/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/30/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/30/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/4/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/4/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/4/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/5/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/5/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/5/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/6/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/6/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/6/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/7/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/7/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/7/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/8/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/8/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/8/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/9/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/9/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/real_states/9/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/messages/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/orders/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/products/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/products/all.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/products/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/products/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/products/search-custom.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/products/search-custom.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/seller/products/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/products/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/listing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/listing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend-master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/seller_routes.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/60x790OlOppDpFL7SyOtWZhffrZ6C9FLYve5bwsQ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/GnWdGbKoJO1oQSAkGMJX3YeuOl4A5aHJXXIDlH8h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +254,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1lpwg6EjKa1RTsabBQnp7AgzyDl" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -129,26 +264,26 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/uploads/users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/uploads/real_states" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/uploads/users" />
-      <recent name="$PROJECT_DIR$/public/uploads" />
-      <recent name="$PROJECT_DIR$/public/uploads/real_states/1" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-      <recent name="$PROJECT_DIR$/public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/assets" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/public/demos" />
       <recent name="$PROJECT_DIR$/public/assets/front/css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/uploads/real_states" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/owner/real_estates" />
+      <recent name="$PROJECT_DIR$/public/uploads/users" />
+      <recent name="$PROJECT_DIR$/public/uploads" />
+      <recent name="$PROJECT_DIR$/public/uploads/real_states/1" />
     </key>
   </component>
   <component name="RunManager">
@@ -171,7 +306,7 @@
       <workItem from="1608406170737" duration="13405000" />
       <workItem from="1608453256153" duration="671000" />
       <workItem from="1608498455972" duration="31438000" />
-      <workItem from="1608585582733" duration="3624000" />
+      <workItem from="1608585582733" duration="39852000" />
     </task>
     <servers />
   </component>
@@ -187,18 +322,22 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="158" y="25" width="1584" height="1051" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608519295826" />
-    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608512459543">
+    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608604735781">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608512459543" />
+    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608604735781" />
+    <state x="743" y="310" width="424" height="480" key="FileChooserDialogImpl" timestamp="1608627038868">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="743" y="310" width="424" height="480" key="FileChooserDialogImpl/0.25.1920.1055@0.25.1920.1055" timestamp="1608627038868" />
     <state x="433" y="249" width="657" height="602" key="NewPhpClassDialog" timestamp="1608328936230">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="433" y="249" width="657" height="602" key="NewPhpClassDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608328936230" />
-    <state x="755" y="473" width="369" height="155" key="NewPhpFileDialog" timestamp="1608528044480">
+    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog" timestamp="1608679050729">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="755" y="473" width="369" height="155" key="NewPhpFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608528044480" />
+    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608679050729" />
     <state x="624" y="254" key="run.anything.popup" timestamp="1608407205036">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>

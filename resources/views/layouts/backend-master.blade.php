@@ -85,41 +85,6 @@ desired effect
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
-{{--                    <li class="dropdown messages-menu">--}}
-{{--                        <!-- Menu toggle button -->--}}
-{{--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-{{--                            <i class="fa  fa-bell-o"></i>--}}
-{{--                            <span class="label label-success">4</span>--}}
-{{--                        </a>--}}
-{{--                        <ul class="dropdown-menu">--}}
-{{--                            <li class="header">You Have 4 Notifications</li>--}}
-{{--                            <li>--}}
-{{--                                <!-- inner menu: contains the messages -->--}}
-{{--                                <ul class="menu">--}}
-{{--                                    <li><!-- start message -->--}}
-{{--                                        <a href="#">--}}
-{{--                                            <div class="pull-left">--}}
-{{--                                                <!-- User Image -->--}}
-{{--                                                <img src="{{uploadedAssets(auth()->user()->image)}}" class="img-circle" alt="User Image">--}}
-{{--                                            </div>--}}
-{{--                                            <!-- Message title and timestamp -->--}}
-{{--                                            <h4>--}}
-{{--                                                Support Team--}}
-{{--                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>--}}
-{{--                                            </h4>--}}
-{{--                                            <!-- The message -->--}}
-{{--                                            <p>Why not buy a new awesome theme?</p>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    <!-- end message -->--}}
-{{--                                </ul>--}}
-{{--                                <!-- /.menu -->--}}
-{{--                            </li>--}}
-{{--                            <li class="footer"><a href="#">See All Messages</a></li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
-                    <!-- /.messages-menu -->
                     <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
@@ -195,7 +160,7 @@ desired effect
                 <!-- Optionally, you can add icons to the links -->
                 <li class="{{inTheCurrentRoute('dashboard')}}"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
-                 @if(auth()->user()->role === ADMIN)
+                 @if(auth()->user()->role == ADMIN)
                     <li class="{{inTheCurrentRoute('seller/*')}}"><a href="{{route('seller.index')}}"><i class="fa fa-user-circle"></i> <span>Sellers</span></a></li>
                     <li class="{{inTheCurrentRoute('customer.index')}}"><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> <span>Customers</span></a></li>
                     <li class="{{inTheCurrentRoute('category.index')}}"><a href="{{route('category.index')}}"><i class="fa fa-cubes"></i> <span>Categories</span></a></li>
@@ -203,13 +168,12 @@ desired effect
                     <li class="{{inTheCurrentRoute('plans.index')}}"><a href="{{route('plans.index')}}"><i class="fa fa-money"></i> <span>Plans</span></a></li>
                     <li class="{{inTheCurrentRoute('plan-orders/*')}}"><a href="{{route('planOrders.index')}}"><i class="fa fa-plus-circle"></i> <span>New Plan Requests</span></a></li>
                     <li class="{{inTheCurrentRoute('contacts/*')}}"><a href="{{route('contact.index')}}"><i class="fa fa-support"></i> <span>Contacts</span></a></li>
-{{--                    <li class="{{inTheCurrentRoute('dashboard')}}"><a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>--}}
-                @elseif(auth()->user()->role === SELLER)
-                    <li class="{{inTheCurrentRoute('category/*')}}"><a href="{{route('category.show')}}"><i class="fa fa-cubes"></i> <span>Categories</span></a></li>
-                    <li class="{{inTheCurrentRoute('product/*','product')}}"><a href="{{route('product.index')}}"><i class="fa fa-product-hunt"></i> <span>Products</span></a></li>
-                    <li class="{{inTheCurrentRoute('orders.pending')}}"><a href="{{route('orders.pending')}}"><i class="fa fa-cart-plus"></i> <span>New Orders</span></a></li>
-                    <li class="{{inTheCurrentRoute('orders.shipping')}}"><a href="{{route('orders.shipping')}}"><i class="fa fa-truck"></i> <span>Shipped Orders</span></a></li>
-                    <li class="{{inTheCurrentRoute('orders.delivered')}}"><a href="{{route('orders.delivered')}}"><i class="fa fa-handshake-o"></i> <span>Delivered Orders</span></a></li>
+                @elseif(auth()->user()->role == OWNER)
+                    <li class="{{inTheCurrentRoute('real-estate/index')}}"><a href="{{route('real-estate.index')}}"><i class="fa fa-building-o"></i> <span>Real Estates</span></a></li>
+                    <li class="{{inTheCurrentRoute('real-estate/show-type/building')}}"><a href="{{route('real-estate.get','building')}}"><i class="fa fa-building"></i> <span>Building</span></a></li>
+                    <li class="{{inTheCurrentRoute('real-estate/show-type/apartment')}}"><a href="{{route('real-estate.get','apartment')}}"><i class="fa fa-home"></i> <span>Apartment</span></a></li>
+                    <li class="{{inTheCurrentRoute('real-estate/show-type/land')}}"><a href="{{route('real-estate.get','land')}}"><i class="fa fa-square-o"></i> <span>Land</span></a></li>
+                    <li class="{{inTheCurrentRoute('orders.pending')}}"><a href="{{route('orders.pending')}}"><i class="fa fa-plus"></i> <span>New Customers Orders</span></a></li>
                     <li class="{{inTheCurrentRoute('clients-messages/*')}}"><a href="{{route('order_contact.index')}}"><i class="fa fa-support"></i> <span>Contacts</span></a></li>
                 @endif
             </ul>

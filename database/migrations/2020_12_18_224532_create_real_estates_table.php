@@ -18,20 +18,20 @@ class CreateRealEstatesTable extends Migration
             // general
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->text('description');
-            $table->string('video')->nullable();
+//            $table->string('video')->nullable();
 
             //address
             $table->string('address');
             $table->unsignedBigInteger('state_id');
-            $table->string('lat');
-            $table->string('long');
+//            $table->string('lat');
+//            $table->string('long');
 
             // public information
             $table->enum('type',['apartment','building','land']);
             $table->enum('category',['buy','rent']);
-            $table->enum('status',['available','busy'])->nullable();
+            $table->enum('status',['available','busy','sold'])->nullable();
 //            $table->enum('rent_by',['month'])->nullable();
             $table->integer('floors_number')->nullable();
             $table->integer('flats_number')->nullable();
@@ -42,6 +42,7 @@ class CreateRealEstatesTable extends Migration
             // start and end date to be available
             $table->dateTime('start_rent_date')->nullable();
             $table->dateTime('end_rent_date')->nullable();
+            $table->dateTime('buy_date')->nullable();
 
             //services
             $table->boolean('has_pool')->default(false);

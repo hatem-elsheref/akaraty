@@ -199,7 +199,7 @@
                                         @endif
 
                                         <a href="{{route('real_estate.details',$real_estate->slug)}}">
-                                            <img src="{{$real_estate->mainImage()}}" alt="{{$real_estate->slug}}">
+                                            <img src="{{$real_estate->mainImage()}}" alt="{{$real_estate->slug}}" style="height: 250px">
                                         </a>
                                         <div class="real-estate-item-price">
                                             @if($real_estate->category == RENT)
@@ -270,7 +270,7 @@
 
                     @foreach($randomPlaces as $item)
                         <div class="col-lg-4">
-                            <a href="#" style="background: url('theme/demos/real-estate/images/cities/{{randomCityImage()}}') no-repeat center center; background-size: cover;">
+                            <a href="{{route('state.search',$item->id)}}" style="background: url('theme/demos/real-estate/images/cities/{{randomCityImage()}}') no-repeat center center; background-size: cover;">
                                 <div class="vertical-middle dark center">
                                     <div class="heading-block m-0 border-0">
                                         <h3 class="text-capitalize font-weight-medium">{{ucfirst($item->name)}}</h3>

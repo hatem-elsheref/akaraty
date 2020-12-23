@@ -21,7 +21,8 @@ class UserTableSeeder extends Seeder
                 'status'=>'unblocked',
                 'password'=>\Illuminate\Support\Facades\Hash::make(12345678),
                 'plan_id' =>null,
-                'plan_starting_date'=>null
+                'plan_starting_date'=>null,
+                'created_at'=>now()
             ),
             array(
                 'name'  =>'owner',
@@ -32,7 +33,8 @@ class UserTableSeeder extends Seeder
                 'status'=>'unblocked',
                 'password'=>\Illuminate\Support\Facades\Hash::make(12345678),
                 'plan_id' =>1,
-                'plan_starting_date'=>now()
+                'plan_starting_date'=>now(),
+                'created_at'=>now()
             ),
             array(
                 'name'  =>'customer',
@@ -43,7 +45,8 @@ class UserTableSeeder extends Seeder
                 'status'=>'unblocked',
                 'password'=>\Illuminate\Support\Facades\Hash::make(12345678),
                 'plan_id' =>null,
-                'plan_starting_date'=>null
+                'plan_starting_date'=>null,
+                'created_at'=>now()
             ),
         ];
         \App\Models\User::insert($users);

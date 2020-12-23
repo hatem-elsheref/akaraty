@@ -159,7 +159,7 @@
                                         <div class="badge badge-danger">For Sale</div>
                                     @endif
                                     <a href="{{route('real_estate.details',$real_estate->slug)}}">
-                                        <img src="{{$real_estate->mainImage()}}" alt="{{$real_estate->slug}}">
+                                        <img src="{{$real_estate->mainImage()}}" alt="{{$real_estate->slug}}" style="height: 250px">
                                     </a>
                                     <div class="real-estate-item-price">
                                         @if($real_estate->category == RENT)

@@ -52,16 +52,5 @@ class LoginController extends Controller
             toast('Your Account Has Been Blocked By System','error');
             return redirect()->route('website');
         }
-        else{
-            if ($user->role === OWNER){
-                // if the starting date + the plan period in months less than the current date (now =>allow )
-                // else disable or prevent him from accessing the dashboard with message to renew the the plan
-                if (Carbon::now()->subMonths($user->plan->period)->greaterThan($user->plan_starting_date)){
-                    Auth::logout();
-                    toast('Your Plan Has Been Finished Renew It To Be Able To Access','error');
-                    return redirect()->route('website');
-                }
-            }
-        }
     }
 }

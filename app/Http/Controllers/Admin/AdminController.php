@@ -26,8 +26,8 @@ class AdminController extends Controller
         $this->user=auth()->user();
         if ($this->user->role === ADMIN){
             return view('admin.index',$this->adminIndexData());
-        }elseif ($this->user->role === SELLER){
-            return view('admin.seller.index',$this->sellerIndexData());
+        }elseif ($this->user->role === OWNER){
+            return view('admin.owner.index',$this->ownerIndexData());
         }else{
             abort(403);
         }
@@ -49,18 +49,23 @@ class AdminController extends Controller
         $data['delivered_orders']=Order::where('status',DELIVERED)->count();
         return $data;
     }
-    public function sellerIndexData(){
-        $user=auth()->user();
-        $data=[];
-        $data['category']   =Category::get()->count();
-        $data['products']   =Product::where('user_id',$user->id)->count();
-        $data['daily_orders']=Order::whereDay('created_at',now())->where('seller_id',$user->id)->where('seller_id',$user->id)->count();
-        $data['price_of_total_products']=Order::whereMonth('created_at',now())->where('seller_id',$user->id)->select('total')->sum('total');
-        $data['price_of_daily_orders']=Order::whereDay('created_at',now())->where('seller_id',$user->id)->where('status',DELIVERED)->sum('total');
-        $data['shipped_orders']=Order::where('status',SHIPPED)->where('seller_id',$user->id)->count();
-        $data['pending_orders']=Order::where('status',PENDING)->where('seller_id',$user->id)->count();
-        $data['delivered_orders']=Order::where('status',DELIVERED)->where('seller_id',$user->id)->count();
-
+    public function ownerIndexData(){
+//        $data['category']   =Category::get()->count();
+//        $data['products']   =Product::where('user_id',$user->id)->count();
+//        $data['daily_orders']=Order::whereDay('created_at',now())->where('seller_id',$user->id)->where('seller_id',$user->id)->count();
+//        $data['price_of_total_products']=Order::whereMonth('created_at',now())->where('seller_id',$user->id)->select('total')->sum('total');
+//        $data['price_of_daily_orders']=Order::whereDay('created_at',now())->where('seller_id',$user->id)->where('status',DELIVERED)->sum('total');
+//        $data['shipped_orders']=Order::where('status',SHIPPED)->where('seller_id',$user->id)->count();
+//        $data['pending_orders']=Order::where('status',PENDING)->where('seller_id',$user->id)->count();
+//        $data['delivered_orders']=Order::where('status',DELIVERED)->where('seller_id',$user->id)->count();
+        $data['category']    =0;
+        $data['daily_orders']=0;
+        $data['products']    =0;
+        $data['price_of_total_products']=0;
+        $data['price_of_daily_orders']  =0;
+        $data['shipped_orders']=0;
+        $data['pending_orders']=0;
+        $data['delivered_orders']=0;
         return $data;
     }
 }

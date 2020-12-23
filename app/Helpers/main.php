@@ -4,7 +4,7 @@ use App\ProductRate;
 
 define('PAGINATION',12);
 define('TOP',6);
-define('DEFAULT_PRODUCT','default-product.png');
+define('DEFAULT_REAL_ESTATE','default-building.png');
 define('COD','COD');
 define('GATEWAY','GATEWAY');
 define('PENDING','pending');
@@ -73,8 +73,8 @@ if (!function_exists('category')){
 
 if (!function_exists('randomCityImage')){
     function randomCityImage(){
-       ;
-        return  ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg'][1];
+       $images=['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg'];
+        return  $images[rand(0,count($images)-1)];
     }
 }
 // function return the types of real state

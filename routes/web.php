@@ -41,6 +41,8 @@ Route::group(['namespace'=>'Front'],function (){
     Route::post('/subscribe-to-plan/{plan}', 'ProcessController@checkoutPlan')->name('checkout.plan')->middleware('auth');
     Route::post('/check-before-subscribe-to-plan', 'ProcessController@ConfirmToChangeThePlan')->name('checkout.confirm');
 
+    // booking and buy the real estate
+
 
 
 

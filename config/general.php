@@ -1,7 +1,7 @@
 <?php
 return [
-    'application_name'=>'E-ecommerce',
-    'application_name_mini'=>'E-ec',
+    'application_name'=>'Akaraty',
+    'application_name_mini'=>'AKAR',
     'logo'=>'app_logo.png',
     'social_links'=>[
         'facebook'  =>'#',

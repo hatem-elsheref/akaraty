@@ -63,15 +63,15 @@
                                 <a href="{{$image->src()}}" class="d-none" data-lightbox="gallery-item"></a>
                             @endif
                         @endforeach
-                        <a href="{{$real_state->video}}" data-lightbox="iframe" class="button button-color button-rounded nott font-weight-medium align-self-end my-0 ml-2"><i class="icon-play"></i> Play Video</a>
+{{--                        <a href="{{$real_state->video}}" data-lightbox="iframe" class="button button-color button-rounded nott font-weight-medium align-self-end my-0 ml-2"><i class="icon-play"></i> Play Video</a>--}}
                     </div>
                 </div>
                 <div class="real-estate-price mb-md-0 mb-lg-4 mb-xl-0"><h3>{{currency().' '.$real_state->price}}<span class="text-light h6">/{{$real_state->category == RENT?'Month':'Total'}}</span></h3></div>
             </div>
         </div>
-        <div class="video-wrap" style="position: absolute; top: 0; left: 0; height: 100%;z-index: 1">
-            <div class="video-overlay" style="background:linear-gradient(180deg,rgba(0,0,0,.3) 0,transparent 40%,transparent 60%,rgba(0,0,0,.8));"></div>
-        </div>
+{{--        <div class="video-wrap" style="position: absolute; top: 0; left: 0; height: 100%;z-index: 1">--}}
+{{--            <div class="video-overlay" style="background:linear-gradient(180deg,rgba(0,0,0,.3) 0,transparent 40%,transparent 60%,rgba(0,0,0,.8));"></div>--}}
+{{--        </div>--}}
 
     </section><!-- #slider end -->
 
@@ -253,15 +253,19 @@
 
                                 </div>
 
-                                <div class="widget clearfix">
-                                    <h4>Map</h4>
-                                    <iframe src="https://maps.google.com/?q={{$real_state->lat}},{{$real_state->long}}&ll=38.6531004,-90.243462&z=3" width="600" height="450" style="border:0" allowfullscreen></iframe>
-                                </div>
+{{--                                <div class="widget clearfix">--}}
+{{--                                    <h4>Map</h4>--}}
+{{--                                    <a href="https://www.latlong.net/c/?lat={{$real_state->lat}}&long={{$real_state->long}}" target="_blank">--}}
+{{--                                        See The Place In Map--}}
+{{--                                        ({{$real_state->lat}}, {{$real_state->long}})--}}
+{{--                                    </a>--}}
+{{--                                    <iframe src="https://maps.google.com/?q=,&ll=38.6531004,-90.243462&z=3" width="600" height="450" style="border:0" allowfullscreen></iframe>--}}
+{{--                                </div>--}}
 
-                                <div class="widget clearfix">
-                                    <h4>Video</h4>
-                                    <iframe width="560" height="315" src="{{$real_state->video}}" allow="encrypted-media" allowfullscreen></iframe>
-                                </div>
+{{--                                <div class="widget clearfix">--}}
+{{--                                    <h4>Video</h4>--}}
+{{--                                    <iframe width="560" height="315" src="{{$real_state->video}}" allow="encrypted-media" allowfullscreen></iframe>--}}
+{{--                                </div>--}}
 
 
                             </div>
@@ -289,7 +293,7 @@
                                     <div class="badge badge-danger">For Sale</div>
                                 @endif
                                     <a href="{{route('real_estate.details',$real_estate->slug)}}">
-                                        <img src="{{$real_estate->mainImage()}}" alt="{{$real_estate->slug}}">
+                                        <img src="{{$real_estate->mainImage()}}" alt="{{$real_estate->slug}}" style="height: 250px">
                                     </a>
                                     <div class="real-estate-item-price">
                                         @if($real_estate->category == RENT)

@@ -103,7 +103,7 @@ class RealEstateController extends Controller
         return view('front.pages.listing',['real_states'=>$results->paginate(PAGINATION)]);
     }
     private function search($column=null,$value=null,$orderBy='created_at',$method='desc'){
-        $real_states=RealEstate::with('owner','state','state.country','images')->orderBy($orderBy,$method);
+        $real_states=RealEstate::with('owner','state','state.country','images')->where('status','!=','busy')->orderBy($orderBy,$method);
         if ($column && $value)
             $real_states=$real_states->where($column,$value);
         return $real_states->paginate(PAGINATION);
