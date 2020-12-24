@@ -22,7 +22,7 @@ class HomeController extends Controller
         $data['admins']         =User::whereIn('role',[ADMIN])->count();
         $data['total_states']   =State::count();
         $data['randomPlaces']   =state::with('realEstates')->whereHas('realEstates')->inRandomOrder()->take(TOP)->get();
-        $data['real_states']    =RealEstate::with('owner','state','state.country','images')->where('status','!=','busy')->orderByDesc('created_at')->take(PAGINATION)->get();
+        $data['real_states']    =RealEstate::with('owner','state','state.country','images')->where('status','=','available')->orderByDesc('created_at')->take(PAGINATION)->get();
         $data['total_real_states']=RealEstate::count();
         return view('front.pages.home',$data);
     }

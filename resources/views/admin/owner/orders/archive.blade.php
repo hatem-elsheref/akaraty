@@ -17,48 +17,32 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table class="table">
                             <tbody><tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Date</th>
                                 <th>Total</th>
+                                <th>Status</th>
                                 <th>Payment Method</th>
                                 <th>Billing Details</th>
                                 <th>RealEstate Details</th>
                                 <th>Actions</th>
                             </tr>
                             @foreach($orders as $order)
-                                <tr>
+                                <tr class="@if($order->status == 'buying') bg-success @elseif($order->status == 'renting') bg-warning @else bg-danger @endif">
                                     <td>{{$order->id}}</td>
                                     <td>{{$order->user->name}}</td>
                                     <td>{{$order->user->email}}</td>
                                     <td>{{$order->created_at->format('Y-m-d h:i')}}</td>
                                     <td>{{$order->total.' '.currency()}}</td>
+                                    <td>{{ucfirst($order->status)}}</td>
                                     <td>{{$order->method}}</td>
                                     <td><button class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-billing-{{$order->id}}"> <i class="fa fa-info"></i> View Billing Details </button></td>
                                     <td><button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-view-{{$order->id}}"> <i class="fa fa-eye"></i> View Unit Details </button></td>
-                                    <td>
-                                        @if($order->status == PENDING)
-                                            <button class="btn btn-sm btn-danger" onclick="RemoveItem('item-{{$order->id}}','Cancel The Order ??')"> <i class="fa fa-times"></i>   Cancel</button>
-                                            <button class="btn btn-sm btn-success" onclick="RemoveItem('approve-item-{{$order->id}}','Approve The Order ??')"> <i class="fa fa-check"></i> Approve </button>
-                                        @endif
-                                        @if($order->status == APPROVED)
-
-                                        @endif
-
-                                    </td>
-
-                                    @if($order->status == PENDING)
-                                    <form action="{{route('orders.cancel',$order->id)}}" id="item-{{$order->id}}" method="POST"> @csrf </form>
-                                    <form action="{{route('orders.approve',$order->id)}}" id="approve-item-{{$order->id}}" method="POST"> @csrf
-                                        <input type="hidden" name="time_to_shipping" id="time_to_shipping">
-                                    </form>
-                                    @endif
-                                    @if($order->status == 'sh')
-                                        <form action="{{route('orders._delivered',$order->id)}}" id="deliver-item-{{$order->id}}" method="POST"> @csrf</form>
-                                    @endif
+                                    <td><button class="btn btn-sm btn-danger" onclick="RemoveItem('item-{{$order->id}}','Remove This Order ??')"> <i class="fa fa-trash"></i>  Remove</button></td>
+                                    <form  action="{{route('orders.destroy',$order->id)}}" id="item-{{$order->id}}" method="POST"> @csrf @method('DELETE') </form>
                                     <div class="modal fade" id="modal-billing-{{$order->id}}" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -68,56 +52,56 @@
                                                     <h4 class="modal-title">Billing Details</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
-                                                                    <label>Name</label>
-                                                                    <input class="form-control" disabled value="{{$order->first_name .' '.$order->last_name}}" >
-                                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>Name</label>
+                                                                <input class="form-control" disabled value="{{$order->first_name .' '.$order->last_name}}" >
                                                             </div>
-                                                            <div class="col-sm-6">
-                                                                <label>Country</label>
-                                                                <div class="form-group">
-                                                                    <input class="form-control" disabled value="{{$order->country}}" >
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <label>Address</label>
-                                                                <div class="form-group">
-                                                                    <input class="form-control" disabled value="{{$order->address}}" >
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <label>Postcode</label>
-                                                                <div class="form-group">
-                                                                    <input class="form-control" disabled value="{{$order->postcode}}" >
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <label>Phone</label>
-                                                                <div class="form-group">
-                                                                    <input class="form-control" disabled value="{{$order->phone}}" >
-                                                                </div>
-                                                            </div>
-
-                                                            @if($order->category != 'rent')
-                                                                <div class="col-sm-6">
-                                                                    <label>Rent The Unit For Months</label>
-                                                                    <div class="form-group">
-                                                                        <input class="form-control" disabled value="{{$order->months}} Months" >
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            <div class="col-sm-6">
-                                                                <label>Payment</label>
-                                                                <div class="form-group">
-                                                                    <input class="form-control" disabled value="{{$order->method}}" >
-                                                                </div>
-                                                            </div>
-
-
                                                         </div>
+                                                        <div class="col-sm-6">
+                                                            <label>Country</label>
+                                                            <div class="form-group">
+                                                                <input class="form-control" disabled value="{{$order->country}}" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label>Address</label>
+                                                            <div class="form-group">
+                                                                <input class="form-control" disabled value="{{$order->address}}" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label>Postcode</label>
+                                                            <div class="form-group">
+                                                                <input class="form-control" disabled value="{{$order->postcode}}" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label>Phone</label>
+                                                            <div class="form-group">
+                                                                <input class="form-control" disabled value="{{$order->phone}}" >
+                                                            </div>
+                                                        </div>
+
+                                                        @if($order->category != 'rent')
+                                                            <div class="col-sm-6">
+                                                                <label>Rent The Unit For Months</label>
+                                                                <div class="form-group">
+                                                                    <input class="form-control" disabled value="{{$order->months}} Months" >
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
+                                                        <div class="col-sm-6">
+                                                            <label>Payment</label>
+                                                            <div class="form-group">
+                                                                <input class="form-control" disabled value="{{$order->method}}" >
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

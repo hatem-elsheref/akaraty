@@ -27,9 +27,6 @@
                                 <th>Actions</th>
                             </tr>
                             @foreach($contacts as $contact)
-                                @if($contact->relatedOrder->seller->id != auth()->id() )
-                                @break
-                                @endif
                                 <tr>
                                     <td>{{$contact->id}}</td>
                                     <td>{{$contact->user->name}}</td>
@@ -103,7 +100,17 @@
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
-                                                                <input class="form-control" value="{{$contact->subject}}" disabled>
+                                                                <input class="form-control" value="{{$contact->name}}" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" value="{{$contact->email}}" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" value="{{$contact->phone}}" disabled>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12">
@@ -128,15 +135,35 @@
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span></button>
-                                                    <h4 class="modal-title">View User Order</h4>
+                                                    <h4 class="modal-title">View Real Estate Details</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <ul class="list-group list-group-flush">
-                                                                @foreach($contact->relatedOrder->items as $item)
-                                                                    <li class="list-group-item">{{$item->product->name}} <span class="text-danger">x</span> {{$item->quantity}} <span class="text-danger">=</span> {{$item->product->price*$item->quantity}}$</li>
-                                                                @endforeach
+                                                                <li class="list-group-item">Title    <span class="text-danger"> : </span> {{$contact->real_estate->title}}</li>
+                                                                <li class="list-group-item">Country  <span class="text-danger"> : </span> {{$contact->real_estate->state->country->name}}</li>
+                                                                <li class="list-group-item">State    <span class="text-danger"> : </span> {{$contact->real_estate->state->name}}</li>
+                                                                <li class="list-group-item">Address  <span class="text-danger"> : </span> {{$contact->real_estate->address}}</li>
+                                                                <li class="list-group-item">Price    <span class="text-danger"> : </span> {{$contact->real_estate->price.' '.currency()}}</li>
+                                                                <li class="list-group-item">Type     <span class="text-danger"> : </span> {{$contact->real_estate->type}}</li>
+                                                                <li class="list-group-item">Category <span class="text-danger"> : </span> {{$contact->real_estate->category}}</li>
+                                                                <li class="list-group-item">Area<span class="text-danger"> : </span> {{$contact->real_estate->area}}</li>
+                                                                <li class="list-group-item">Read More <span class="text-danger"> : </span>
+                                                                    <a href="{{route('real-estate.show',$contact->realEstate)}}" target="_blank">MORE</a></li>
+                                                                @if($contact->real_estate->type != 'land')
+                                                                    <li class="list-group-item">Bed Rooms <span class="text-danger">    : </span> {{$contact->real_estate->bed_room_number}}</li>
+                                                                    <li class="list-group-item">Bath Rooms <span class="text-danger">   : </span> {{$contact->real_estate->bath_room_number}}</li>
+                                                                    <li class="list-group-item">Living Rooms <span class="text-danger"> : </span> {{$contact->real_estate->living_room_number}}</li>
+                                                                    <li class="list-group-item">Floors Number <span class="text-danger">: </span> {{$contact->real_estate->floors_number}}</li>
+                                                                    <li class="list-group-item">Flats Number <span class="text-danger"> : </span> {{$contact->real_estate->flats_number}}</li>
+                                                                    <li class="list-group-item">Has Pool <span class="text-danger">     : </span> {{$contact->real_estate->has_pool?'YES':'NO'}}</li>
+                                                                    <li class="list-group-item">Has Kitchen <span class="text-danger">  : </span> {{$contact->real_estate->has_kitchen?'YES':'NO'}}</li>
+                                                                    <li class="list-group-item">Has Garage <span class="text-danger">   : </span> {{$contact->real_estate->has_garage?'YES':'NO'}}</li>
+                                                                    <li class="list-group-item">Has Parking <span class="text-danger">  : </span> {{$contact->real_estate->has_parking?'YES':'NO'}}</li>
+                                                                    <li class="list-group-item">Has Internet <span class="text-danger"> : </span> {{$contact->real_estate->has_internet?'YES':'NO'}}</li>
+                                                                    <li class="list-group-item">Has Cleaning <span class="text-danger"> : </span> {{$contact->real_estate->has_cleaning?'YES':'NO'}}</li>
+                                                                @endif
                                                             </ul>
                                                         </div>
                                                     </div>

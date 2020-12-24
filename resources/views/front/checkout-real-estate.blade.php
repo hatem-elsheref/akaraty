@@ -175,7 +175,7 @@
                                     </tr>
                                 @endif
                                 <tr class="cart_item">
-                                    <td class="border-top-0 cart-product-name"><strong>Plan Price</strong></td>
+                                    <td class="border-top-0 cart-product-name"><strong>Real Estate Total Price</strong></td>
                                     <td class="border-top-0 cart-product-name"><span id="put-price-here">0</span> {{currency()}}</td>
                                 </tr>
                                 </tbody>

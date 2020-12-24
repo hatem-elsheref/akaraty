@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SupportMail;
 use App\Models\Contact;
 use App\Models\RealEstate;
 use App\Models\State;
 use App\Rules\ValidateEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RealEstateController extends Controller
 {
@@ -57,15 +59,15 @@ class RealEstateController extends Controller
         return view('front.pages.listing',$data);
     }
     public function getDetails($slug){
-        $real_state=RealEstate::with('owner','state','state.country','images')->where('slug',$slug)->firstOrFail();
-        $related=RealEstate::with('owner','state','state.country','images')->where('category',$real_state->category)
+        $real_state=RealEstate::with('owner','state','state.country','images')->where('slug',$slug)->where('status','=','available')->firstOrFail();
+        $related=RealEstate::with('owner','state','state.country','images')->where('category',$real_state->category)->where('status','=','available')
             ->where('id','!=',$real_state->id)->orderByDesc('id')->take(3)->get();
         return view('front.pages.details',compact('real_state'))->with('related',$related);
     }
 
     public function searchFilter(Request $request){
         $results=RealEstate::query();
-        $results->with('owner','state','state.country','images');
+        $results->with('owner','state','state.country','images')->where('status','=','available');
         if ($request->has('category') && $request->type =='on'){
             $results->where('category','buy');
         }
@@ -103,7 +105,7 @@ class RealEstateController extends Controller
         return view('front.pages.listing',['real_states'=>$results->paginate(PAGINATION)]);
     }
     private function search($column=null,$value=null,$orderBy='created_at',$method='desc'){
-        $real_states=RealEstate::with('owner','state','state.country','images')->where('status','!=','busy')->orderBy($orderBy,$method);
+        $real_states=RealEstate::with('owner','state','state.country','images')->where('status','=','available')->orderBy($orderBy,$method);
         if ($column && $value)
             $real_states=$real_states->where($column,$value);
         return $real_states->paginate(PAGINATION);
@@ -116,12 +118,14 @@ class RealEstateController extends Controller
             'phone'     =>['required','numeric'],
             'message'   =>'required|string',
         ]);
-        $item=RealEstate::where('slug',$request->item)->firstOrFail();
+        $item=RealEstate::where('slug',$request->item)->where('status','=','available')->firstOrFail();
         $validatedData=$request->except('_token');
         $validatedData['user_id']=$item->user_id;
         $validatedData['for']='owner';
-        Contact::create($validatedData);
+        $validatedData['realEstate']=$item->id;
+        $contact=Contact::create($validatedData);
         success();
+        Mail::to($contact->user->email)->send(new SupportMail($contact,$contact->real_estate->title,$contact->real_estate->address));
         return redirect()->back()->with('response',['type'=>'success','message'=>'Message Sent Successfully']);
     }
 }

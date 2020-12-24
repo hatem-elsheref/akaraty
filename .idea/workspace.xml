@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3040231-a4eb-4f39-a4b9-83e69b7c9408" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderContactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/orders/archive.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RealEstateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RealEstateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/PageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/ProcessController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/ProcessController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/RealEstateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/RealEstateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/SupportMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/SupportMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_19_201257_create_contacts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_19_201257_create_contacts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_23_020715_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_23_020715_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/messages/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/orders/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/all.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/search-custom.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/checkout-real-estate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/checkout-real-estate.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/gnwOodr8cwQ50T8W5Lnq5SudMUdPRokzrkCqCe7Z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend-master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mail/support.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/support.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/owner.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/owner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/gSprdFpKJs0yLt9YvvoUKUpzoQcz1tlqP9yURneK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/controllers/OrderController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,26 +160,26 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/uploads/real_states" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/mail" />
-      <recent name="$PROJECT_DIR$/public/assets" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/app/Models" />
-      <recent name="$PROJECT_DIR$/public/demos" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
       <recent name="$PROJECT_DIR$/public/uploads/real_states" />
       <recent name="$PROJECT_DIR$/resources/views/admin/owner/real_estates" />
       <recent name="$PROJECT_DIR$/public/uploads/users" />
       <recent name="$PROJECT_DIR$/public/uploads" />
-      <recent name="$PROJECT_DIR$/public/uploads/real_states/1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+      <recent name="$PROJECT_DIR$/resources/views/mail" />
+      <recent name="$PROJECT_DIR$/public/assets" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/app/Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -179,7 +202,8 @@
       <workItem from="1608406170737" duration="13405000" />
       <workItem from="1608453256153" duration="671000" />
       <workItem from="1608498455972" duration="31438000" />
-      <workItem from="1608585582733" duration="46640000" />
+      <workItem from="1608585582733" duration="46877000" />
+      <workItem from="1608755680114" duration="28414000" />
     </task>
     <servers />
   </component>
@@ -195,10 +219,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="158" y="25" width="1584" height="1051" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608519295826" />
-    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608604735781">
+    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608781751752">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608604735781" />
+    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608781751752" />
     <state x="743" y="310" width="424" height="480" key="FileChooserDialogImpl" timestamp="1608627038868">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
@@ -207,14 +231,14 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="433" y="249" width="657" height="602" key="NewPhpClassDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608328936230" />
-    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog" timestamp="1608679050729">
+    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog" timestamp="1608773098763">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608679050729" />
-    <state x="624" y="254" key="run.anything.popup" timestamp="1608407205036">
+    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608773098763" />
+    <state x="624" y="254" key="run.anything.popup" timestamp="1608781181939">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="624" y="254" key="run.anything.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1608407205036" />
+    <state x="624" y="254" key="run.anything.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1608781181939" />
     <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1608514647456">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>

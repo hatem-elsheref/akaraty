@@ -161,10 +161,9 @@ desired effect
                 <li class="{{inTheCurrentRoute('dashboard')}}"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
                  @if(auth()->user()->role == ADMIN)
-                    <li class="{{inTheCurrentRoute('seller/*')}}"><a href="{{route('seller.index')}}"><i class="fa fa-user-circle"></i> <span>Sellers</span></a></li>
+                    <li class="{{inTheCurrentRoute('seller/*')}}"><a href="{{route('seller.index')}}"><i class="fa fa-user-circle"></i> <span>Owners</span></a></li>
                     <li class="{{inTheCurrentRoute('customer.index')}}"><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> <span>Customers</span></a></li>
-                    <li class="{{inTheCurrentRoute('category.index')}}"><a href="{{route('category.index')}}"><i class="fa fa-cubes"></i> <span>Categories</span></a></li>
-                    <li class="{{inTheCurrentRoute('products.all')}}"><a href="{{route('products.all')}}"><i class="fa fa-product-hunt"></i> <span>Products</span></a></li>
+                    <li class="{{inTheCurrentRoute('products.all')}}"><a href="{{route('products.all')}}"><i class="fa fa-building-o"></i> <span>Real Estates</span></a></li>
                     <li class="{{inTheCurrentRoute('plans.index')}}"><a href="{{route('plans.index')}}"><i class="fa fa-money"></i> <span>Plans</span></a></li>
                     <li class="{{inTheCurrentRoute('plan-orders/*')}}"><a href="{{route('planOrders.index')}}"><i class="fa fa-plus-circle"></i> <span>New Plan Requests</span></a></li>
                     <li class="{{inTheCurrentRoute('contacts/*')}}"><a href="{{route('contact.index')}}"><i class="fa fa-support"></i> <span>Contacts</span></a></li>
@@ -174,6 +173,7 @@ desired effect
                     <li class="{{inTheCurrentRoute('real-estate/show-type/apartment')}}"><a href="{{route('real-estate.get','apartment')}}"><i class="fa fa-home"></i> <span>Apartment</span></a></li>
                     <li class="{{inTheCurrentRoute('real-estate/show-type/land')}}"><a href="{{route('real-estate.get','land')}}"><i class="fa fa-square-o"></i> <span>Land</span></a></li>
                     <li class="{{inTheCurrentRoute('orders.pending')}}"><a href="{{route('orders.pending')}}"><i class="fa fa-plus"></i> <span>New Customers Orders</span></a></li>
+                    <li class="{{inTheCurrentRoute('orders.archive')}}"><a href="{{route('orders.archive')}}"><i class="fa fa-archive"></i> <span>All Archive</span></a></li>
                     <li class="{{inTheCurrentRoute('clients-messages/*')}}"><a href="{{route('order_contact.index')}}"><i class="fa fa-support"></i> <span>Contacts</span></a></li>
                 @endif
             </ul>

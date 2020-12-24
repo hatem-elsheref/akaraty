@@ -14,14 +14,17 @@ Route::group(['prefix'=>'real-estate'],function (){
     Route::put('/update/{id}','RealEstateController@updateBuilding')->name('real-estate.update_building');
     Route::put('/updateLand/{id}','RealEstateController@updateLand')->name('real-estate.update_land');
     Route::delete('/delete/{id}','RealEstateController@destroy')->name('real-estate.destroy');
+    Route::post('/available/{id}','RealEstateController@available')->name('real-estate.available');
 });
 
 
 // for the Orders
 Route::group(['prefix'=>'orders'],function (){
+    Route::get('/archive','OrderController@allOperations')->name('orders.archive');
     Route::get('/new','OrderController@pending')->name('orders.pending');
+    Route::post('/cancel/{id}','OrderController@cancel')->name('orders.cancel');
+    Route::post('/approve/{id}','OrderController@approve')->name('orders.approve');
     Route::delete('/delete-the-order/{id}','OrderController@destroy')->name('orders.destroy');
-    Route::post('/approve-the-order/{id}','OrderController@orderApproved')->name('orders.approve');
 });
 // for clients supports or contacts
 Route::group(['prefix'=>'clients-messages'],function (){

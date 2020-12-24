@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,12 +17,14 @@ class SupportMail extends Mailable implements ShouldQueue
      *
      * @return void
      */
-    public $subject;
-    public $message;
-    public function __construct($subject,$message)
+    public Contact $contact;
+    public string  $title;
+    public string  $address;
+    public function __construct(Contact $contact,string $title='',string $address='')
     {
-        $this->subject=$subject;
-        $this->message=$message;
+        $this->contact=$contact;
+        $this->title=$title;
+        $this->address=$address;
     }
 
     /**
@@ -31,6 +34,9 @@ class SupportMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->markdown('mail.support')->subject($this->subject)->with('message',$this->message);
+        return $this->markdown('mail.support')->subject("Customer Message")
+            ->with('contact',$this->contact)
+            ->with('title',$this->title)
+            ->with('address',$this->address);
     }
 }

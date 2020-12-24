@@ -354,7 +354,7 @@ class RealEstateController extends Controller
         $realEstate=RealEstate::findOrFail($id);
         Storage::disk('my_desk')->deleteDirectory('uploads/real_states/'.$realEstate->id);
         $realEstate->delete()?success():fail();
-        return redirect()->route('real_estate.index');
+        return redirect()->route('real-estate.index');
     }
 
     public function getState(Request $request){
@@ -372,4 +372,19 @@ class RealEstateController extends Controller
         return $realEstate->slug . $iterator . time() . '.' . $file->getClientOriginalExtension();
     }
 
+    public function available($id){
+        $realEstate=RealEstate::findOrFail($id);
+        if ($realEstate->type != 'land' && $realEstate->category == 'rent'){
+            $realEstate->status='available';
+            $realEstate->start_rent_date=null;
+            $realEstate->end_rent_date=null;
+            $realEstate->save();
+            success();
+        }else{
+            fail();
+        }
+
+        return redirect()->back();
+
+    }
 }

@@ -30,16 +30,14 @@ Route::group(['prefix'=>'plan-orders'],function (){
     // to cancel the order
     Route::delete('/delete/{id}','PlansOrderController@destroy')->name('planOrders.destroy');
 });
-// for the  sellers
-Route::group(['prefix'=>'seller'],function (){
-    // to view the sellers
+// for the  owners
+Route::group(['prefix'=>'owners'],function (){
+    // to view the owners
     Route::get('/all','SellerController@index')->name('seller.index');
-    // to view the seller products
+    // to view the owners real estates
     Route::get('/products/{seller}','SellerController@products')->name('seller.products');
-    // to update the seller (block or not)
+    // to update the owner (block or not)
     Route::put('/update/{seller}/blocking','SellerController@updateStatus')->name('seller.update.status');
-    // to update the seller (best seller or not)
-    Route::put('/update/{seller}/selling','SellerController@updateSelling')->name('seller.update.selling');
 });
 // for the  customer
 Route::group(['prefix'=>'customer'],function (){
@@ -47,17 +45,6 @@ Route::group(['prefix'=>'customer'],function (){
     Route::get('/all','CustomerController@index')->name('customer.index');
     // to update the customer
     Route::put('/update/{customer}','CustomerController@update')->name('customer.update');
-});
-// for the category
-Route::group(['prefix'=>'category'],function (){
-    // to view the available categories
-    Route::get('/all','CategoryController@index')->name('category.index');
-    // to edit category
-    Route::get('/edit/{cat}','CategoryController@edit')->name('category.edit');
-    // to update the category
-    Route::put('/update/{cat}','CategoryController@update')->name('category.update');
-    // to destroy the category
-    Route::delete('/delete/{cat}','CategoryController@destroy')->name('category.destroy');
 });
 
 Route::group(['prefix'=>'contacts'],function (){

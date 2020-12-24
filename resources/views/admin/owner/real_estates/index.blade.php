@@ -27,7 +27,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
+                        <table class="table ">
                             <tbody><tr>
                                 <th>ID</th>
                                 <th>Image</th>
@@ -42,8 +42,14 @@
                                 <th>view</th>
                             </tr>
                             @forelse($realEstates as $item)
-                                <tr>
-                                    <td>{{$item->id}}</td>
+                                @if($item->category == 'rent' && $item->status == 'busy' && \Carbon\Carbon::now()->greaterThan($item->end_rent_date))
+                                    <tr class="bg-success">
+                                        @elseif($item->category =='buy' && $item->status == 'sold')
+                                    <tr class="bg-danger">
+                                        @else
+                                    <tr>
+                                @endif
+                                <td>{{$item->id}}</td>
                                     <td><img class="img-circle" src="{{$item->mainImage()}}" alt="{{$item->slug}}" width="45px" height="45px"></td>
                                     <td>{{$item->title}}</td>
                                     <td>{{$item->owner->name}}</td>
@@ -57,8 +63,22 @@
                                         <button class="btn btn-sm btn-danger" onclick="RemoveItem('item-{{$item->id}}')"> <i class="fa fa-trash"></i>   Remove </button>
                                         <a href="{{route('real-estate.edit',$item->id)}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i>  Edit </a>
                                         <a href="{{route('real-estate.show',$item->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i>  View </a>
+                                        @if($item->category == 'rent' && $item->status == 'busy' && \Carbon\Carbon::now()->greaterThan($item->end_rent_date))
+                                            <button class="btn btn-sm btn-primary" onclick="RemoveItem('restore-item-{{$item->id}}','Restore The Item And Make It Available')"> <i class="fa fa-check"></i> Available </button>
+                                        @endif
+{{--                                        @if($item->category =='buy' && $item->status == 'sold')--}}
+{{--                                            <button class="btn btn-sm btn-danger" disabled> <i class="fa fa-trash"></i>   Remove </button>--}}
+{{--                                            <button class="btn btn-sm btn-success" disabled> <i class="fa fa-edit"></i>   Edit </button>--}}
+{{--                                            <a href="{{route('real-estate.show',$item->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i>  View </a>--}}
+{{--                                        @else--}}
+{{--                                           --}}
+{{--                                        @endif--}}
                                     </td>
-                                    <form action="{{route('real-estate.destroy',$item->id)}}" id="item-{{$item->id}}" method="POST"> @csrf @method('DELETE') </form>
+                                        <form action="{{route('real-estate.destroy',$item->id)}}" id="item-{{$item->id}}" method="POST"> @csrf @method('DELETE') </form>
+
+                                        @if($item->category == 'rent' && $item->status == 'busy' && \Carbon\Carbon::now()->greaterThan($item->end_rent_date))
+                                            <form action="{{route('real-estate.available',$item->id)}}" id="restore-item-{{$item->id}}" method="POST"> @csrf </form>
+                                        @endif
                                 </tr>
                             @empty
                                 <tr>

@@ -13,10 +13,14 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        @if($realEstate->type != 'land' && $realEstate->status =='busy')
-                            <h3 class="box-title">{{$realEstate->title}} Currently In Rent From ({{$realEstate->start_rent_date}}) To ({{$realEstate->start_rent_date}})</h3>
+                        @if($realEstate->type != 'land' && $realEstate->status =='available')
+                            <h3 class="box-title">{{$realEstate->title}} <i class="fa fa-circle text-success"></i>  Available</h3>
+                        @elseif($realEstate->status =='busy')
+                            <h3 class="box-title">{{$realEstate->title}}<i class="fa fa-circle text-danger"></i>   Currently In Rent From ({{$realEstate->start_rent_date}}) To ({{$realEstate->end_rent_date}})</h3>
+                        @elseif($realEstate->status == 'available')
+                            <h3 class="box-title">{{$realEstate->title}} <i class="fa fa-circle text-success"></i>   Available</h3>
                             @else
-                            <h3 class="box-title">{{$realEstate->title}} Available</h3>
+                            <h3 class="box-title">{{$realEstate->title}} <i class="fa fa-circle text-danger"></i>   Not  Available</h3>
                         @endif
                     </div>
                     <!-- /.box-header -->

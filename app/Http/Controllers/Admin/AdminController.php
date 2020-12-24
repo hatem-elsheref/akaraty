@@ -34,19 +34,18 @@ class AdminController extends Controller
     }
     private function adminIndexData(){
         $data=[];
-        $data['customers']  =User::where('role',CUSTOMER)->count();
-        $data['sellers']    =User::where('role',SELLER)->count();
-        $data['category']   =Category::get()->count();
-        $data['products']   =Product::count();
-        $data['plans']      =Plan::count();
-        $data['plan_orders']=Subscribe::count();
-
-        $data['daily_orders']=Order::whereDay('created_at',now())->count();
-        $data['price_of_total_products']=Order::whereMonth('created_at',now())->sum('total');
-        $data['price_of_daily_orders']=Order::whereDay('created_at',now())->where('status',DELIVERED)->sum('total');
-        $data['shipped_orders']=Order::where('status',SHIPPED)->count();
-        $data['pending_orders']=Order::where('status',PENDING)->count();
-        $data['delivered_orders']=Order::where('status',DELIVERED)->count();
+        $data['sellers']                =0;#=User::where('role',SELLER)->count();
+        $data['category']               =0;#=Category::get()->count();
+        $data['products']               =0;#=Product::count();
+        $data['plans']                  =0;#=Plan::count();
+        $data['plan_orders']            =0;#=Subscribe::count();
+        $data['customers']              =0;#=User::where('role',CUSTOMER)->count();
+        $data['daily_orders']           =0;#=Order::whereDay('created_at',now())->count();
+        $data['price_of_daily_orders']  =0;#=Order::whereDay('created_at',now())->where('status',DELIVERED)->sum('total');
+        $data['price_of_total_products']=0;#=Order::whereMonth('created_at',now())->sum('total');
+        $data['shipped_orders']         =0;#=Order::where('status',SHIPPED)->count();
+        $data['pending_orders']         =0;#=Order::where('status',PENDING)->count();
+        $data['delivered_orders']       =0;#=Order::where('status',DELIVERED)->count();
         return $data;
     }
     public function ownerIndexData(){

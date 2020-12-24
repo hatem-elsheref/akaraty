@@ -16,6 +16,7 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('realEstate')->nullable();
             $table->enum('for',['admin','owner']);
             $table->string('name');
             $table->string('email');
@@ -23,6 +24,7 @@ class CreateContactsTable extends Migration
             $table->text('message');
             $table->enum('status',['read','unread'])->default('unread');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('realEstate')->references('id')->on('real_estates')->onDelete('cascade');
             $table->timestamps();
         });
     }

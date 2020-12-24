@@ -130,12 +130,20 @@ class ProcessController extends Controller
     }
 
     public function checkoutView($id){
-        $realEstate=RealEstate::findOrFail($id);
+        $realEstate=RealEstate::where('status','=','available')->where('id',$id)->firstOrFail();
         return view('front.checkout-real-estate',compact('realEstate'));
     }
 
     public function checkoutProcess(Request $request){
-        $realEstate=RealEstate::findOrFail($request->real_estate_id);
+        $realEstate=RealEstate::where('status','=','available')->where('id',$request->real_estate_id)->firstOrFail();
+        if ($realEstate->status != 'available'){
+            $message="Failed Operation This Item Not Available Now";
+            $type='danger';
+            fail($message);
+            return redirect()->back()->with('response',['type'=>$type,'message'=>$message]);
+
+        }
+
         $request->gateway=strtolower($request->gateway);
         $request->validate([
             'real_estate_id'=>'required|numeric',
@@ -155,8 +163,10 @@ class ProcessController extends Controller
         $validatedData['user_id'] =auth()->id();
         $validatedData['method']  =strtoupper($request->gateway);
         $validatedData['status']  ='pending';
-        $validatedData['months']  =$request->months;
-        $validatedData['total']   =$request->months*$realEstate->price;
+        $validatedData['months']  =$request->months??1;
+        $validatedData['total']   =$validatedData['months']*$realEstate->price;
+
+
 
 
         $condition=Order::where('user_id',auth()->id())->where('real_estate_id',$request->real_estate_id)->where('status','pending')->count();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ShippingMail;
+use App\Models\ArchievedOrder;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -66,5 +67,10 @@ class OrderController extends Controller
         success();
         return redirect()->back();
     }
+
+
+
+
+
 }
 
