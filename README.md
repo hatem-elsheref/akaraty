@@ -1,4 +1,7 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center">
+<img src="https://github.com/hatem-mohamed-elsheref/akaraty/blob/master/Screenshot%20from%202020-12-24%2010-10-49.png" width="900">
+<img src="https://github.com/hatem-mohamed-elsheref/akaraty/blob/master/Screenshot%20from%202020-12-24%2010-10-41.png" width="900">
+</p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
