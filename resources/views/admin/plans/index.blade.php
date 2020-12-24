@@ -21,6 +21,7 @@
                         <table class="table table-hover">
                             <tbody><tr>
                                 <th>ID</th>
+                                <th>Plan Title</th>
                                 <th>Plan Name</th>
                                 <th>Plan Period</th>
                                 <th>Plan Price</th>
@@ -33,6 +34,7 @@
                          @foreach($plans as $plan)
                              <tr>
                                  <td>{{$plan->id}}</td>
+                                 <td>{{$plan->title}}</td>
                                  <td>{{$plan->name}}</td>
                                  <td>{{$plan->period}}</td>
                                  <td>{{$plan->price}}</td>

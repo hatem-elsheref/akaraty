@@ -19,7 +19,7 @@ class CreateSubscribesTable extends Migration
             $table->unsignedBigInteger('plan_id');
             $table->unsignedBigInteger('transaction_id');
             $table->enum('status',['approved','pending']);
-            $table->boolean('request_is_expired')->default(false);
+//            $table->boolean('request_is_expired')->default(false);
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

@@ -1,10 +1,10 @@
 <?php
 
 // for the  product
-Route::group(['prefix'=>'product'],function (){
+Route::group(['prefix'=>'real-estates'],function (){
     // to view the available plans
-    Route::get('/all','ProductController@getAllProductsToAdmin')->name('products.all');
-    Route::get('/{slug}/details','ProductController@show')->name('products.show');
+    Route::get('/all','RealEstateController@getAllRealEstatesToAdmin')->name('real-estate.all');
+    Route::get('/{id}/details','RealEstateController@show')->name('real_estate.show');
 });
 // for the  plans
 Route::group(['prefix'=>'plan'],function (){
@@ -33,11 +33,11 @@ Route::group(['prefix'=>'plan-orders'],function (){
 // for the  owners
 Route::group(['prefix'=>'owners'],function (){
     // to view the owners
-    Route::get('/all','SellerController@index')->name('seller.index');
+    Route::get('/all','OwnerController@index')->name('owner.index');
     // to view the owners real estates
-    Route::get('/products/{seller}','SellerController@products')->name('seller.products');
+    Route::get('/realEstates/{owner}','OwnerController@realEstates')->name('owner.real_estates');
     // to update the owner (block or not)
-    Route::put('/update/{seller}/blocking','SellerController@updateStatus')->name('seller.update.status');
+    Route::put('/update/{owner}/blocking','OwnerController@updateStatus')->name('owner.update.status');
 });
 // for the  customer
 Route::group(['prefix'=>'customer'],function (){

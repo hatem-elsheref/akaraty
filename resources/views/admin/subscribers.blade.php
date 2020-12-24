@@ -76,9 +76,7 @@
                                                                         <li class="list-group-item text-bold">Last Name</li>
                                                                         <li class="list-group-item text-bold">Email</li>
                                                                         <li class="list-group-item text-bold">Phone</li>
-                                                                        <li class="list-group-item text-bold">Company</li>
                                                                         <li class="list-group-item text-bold">Country</li>
-                                                                        <li class="list-group-item text-bold">City</li>
                                                                         <li class="list-group-item text-bold">Address</li>
                                                                         <li class="list-group-item text-bold">PostCode</li>
                                                                         <li class="list-group-item text-bold">Method</li>
@@ -95,9 +93,7 @@
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->last_name}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->email}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->phone}}</li>
-                                                                        <li class="list-group-item text-bold">{{$customer->transaction->company}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->country}}</li>
-                                                                        <li class="list-group-item text-bold">{{$customer->transaction->city}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->address}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->postcode}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->method}}</li>
@@ -185,8 +181,6 @@
                                                                         <li class="list-group-item text-bold">Email</li>
                                                                         <li class="list-group-item text-bold">Phone</li>
                                                                         <li class="list-group-item text-bold">Company</li>
-                                                                        <li class="list-group-item text-bold">Country</li>
-                                                                        <li class="list-group-item text-bold">City</li>
                                                                         <li class="list-group-item text-bold">Address</li>
                                                                         <li class="list-group-item text-bold">PostCode</li>
                                                                         <li class="list-group-item text-bold">Method</li>
@@ -203,9 +197,7 @@
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->last_name}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->email}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->phone}}</li>
-                                                                        <li class="list-group-item text-bold">{{$customer->transaction->company}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->country}}</li>
-                                                                        <li class="list-group-item text-bold">{{$customer->transaction->city}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->address}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->postcode}}</li>
                                                                         <li class="list-group-item text-bold">{{$customer->transaction->method}}</li>

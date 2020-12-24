@@ -14,33 +14,33 @@
             <!-- fix for small devices only -->
             <div class="clearfix visible-sm-block"></div>
 
-            <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
 
                 <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-product-hunt"></i></span>
+                    <span class="info-box-icon bg-green"><i class="fa fa-building-o"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Products</span>
-                        <span class="info-box-number">{{$products}}</span>
+                        <span class="info-box-text">Real Estates</span>
+                        <span class="info-box-number">{{$real_estates}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
-            <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-cubes"></i></span>
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-square-o"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Category</span>
-                        <span class="info-box-number">{{$category}}</span>
+                        <span class="info-box-text">Land</span>
+                        <span class="info-box-number">{{$real_estates_land}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
             </div>
-            <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
                     <span class="info-box-icon bg-aqua"><i class="fa fa-shopping-cart"></i></span>
 
@@ -53,13 +53,13 @@
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
-            <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
                     <span class="info-box-icon bg-red"><i class="fa fa-dollar"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Prices Of Daily Orders</span>
-                        <span class="info-box-number">{{$price_of_daily_orders}}</span>
+                        <span class="info-box-number">{{$price_of_daily_orders.' '.currency()}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -70,23 +70,36 @@
             <!-- fix for small devices only -->
             <div class="clearfix visible-sm-block"></div>
 
-            <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
 
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-dollar"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Total  Prices ({{\Carbon\Carbon::now()->format('M')}})</span>
-                        <span class="info-box-number">{{$price_of_total_products}}</span>
+                        <span class="info-box-text">Total  Prices </span>
+                        <span class="info-box-number">{{$price_of_total_items .' '.currency()}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
             </div>
             <!-- /.col -->
-            <div class="col-md-2 col-sm-3 col-xs-12">
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-cart-plus"></i></span>
+                    <span class="info-box-icon bg-blue"><i class="fa fa-cart-arrow-down"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Orders</span>
+                        <span class="info-box-number">{{$orders}}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-spinner fa-spin"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Pending Orders</span>
@@ -96,25 +109,13 @@
                 </div>
                 <!-- /.info-box -->
             </div>
-            <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-blue"><i class="fa fa-truck"></i></span>
+                    <span class="info-box-icon bg-blue"><i class="fa fa-comment-o"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Shipped Orders</span>
-                        <span class="info-box-number">{{$shipped_orders}}</span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-blue"><i class="fa fa-handshake-o"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Delivered Orders</span>
-                        <span class="info-box-number">{{$delivered_orders}}</span>
+                        <span class="info-box-text">Messages</span>
+                        <span class="info-box-number">{{$messages}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>

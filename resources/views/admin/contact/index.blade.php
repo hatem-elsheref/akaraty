@@ -21,7 +21,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Website</th>
+                                <th>Phone</th>
                                 <th>Status</th>
                                 <th>Message</th>
                                 <th>Actions</th>
@@ -29,11 +29,9 @@
                             @foreach($contacts as $contact)
                                 <tr>
                                     <td>{{$contact->id}}</td>
-                                    <td>{{$contact->firstname.' '.$contact->last_name}}</td>
+                                    <td>{{$contact->name}}</td>
                                     <td>{{$contact->email}}</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-info" href="{{$contact->website}}" target="_blank"> <i class="fa fa-globe"></i> Website</a>
-                                    </td>
+                                    <td>{{$contact->phone}}</td>
                                     <td>
                                         @if($contact->status === 'read')
                                             <span class="badge badge-success" style="background-color: seagreen">Read</span>
@@ -100,7 +98,17 @@
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
-                                                                <input class="form-control" value="{{$contact->subject}}" disabled>
+                                                                <input class="form-control" value="{{$contact->name}}" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" value="{{$contact->email}}" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" value="{{$contact->phone}}" disabled>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12">

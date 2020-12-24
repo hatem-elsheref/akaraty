@@ -2,8 +2,8 @@
 
 namespace App\Mail;
 
-use App\Plan;
-use App\User;
+use App\Models\Plan;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

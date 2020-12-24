@@ -387,4 +387,20 @@ class RealEstateController extends Controller
         return redirect()->back();
 
     }
+
+    public function getAllRealEstatesToAdmin(Request $request){
+        $items=RealEstate::with('owner','state','state.country','images')->where(function ($query) use($request){
+            $query->when($request->search,function ($q) use ($request){
+                $q->where('title','like','%'.$request->search.'%')
+                    ->orWhere('address','like','%'.$request->search.'%')
+                    ->orWhere('slug','like','%'.$request->search.'%')
+                    ->orWhere('category','like','%'.$request->search.'%')
+                    ->orWhere('type','like','%'.$request->search.'%')
+                    ->orWhere('area','=',$request->search)
+                    ->orWhere('price','=',$request->search);
+            });
+        })->orderByDesc('id')->paginate(PAGINATION);
+
+        return view('admin.owner.real_estates.for_admin',['realEstates'=>$items]);
+    }
 }

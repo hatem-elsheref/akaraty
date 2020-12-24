@@ -5,47 +5,39 @@ namespace App\Http\Controllers\Admin;
 use App\Mail\ReplyMail;
 use App\Models\Contact;
 use App\Http\Controllers\Controller;
+use App\Mail\SupportMail;
 use App\Rules\ValidateEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
 
-class OrderContactController extends Controller
+class ContactController extends Controller
 {
     public function index(){
-        $contacts=Contact::with(['user','real_estate'])->whereIn('status',['unread','read'])
-            ->where('for','owner')
-            ->where('user_id',auth()->id())
-            ->orderByDesc('id')->get();
-        return view('admin.owner.messages.index',['contacts'=>$contacts]);
+        $contacts=Contact::whereIn('status',['unread','read'])->where('for',ADMIN)->orderByDesc('id')->paginate(PAGINATION);
+        return view('admin.contact.index',compact('contacts'));
     }
-
     public function reply(Request $request){
-        $validator=Validator::make($request->all(),
-            ['email'  =>['required','email',new ValidateEmail()],
+        $request->validate([
+            'email'  =>['required','email',new ValidateEmail()],
             'subject'=>'required',
-            'message'=>'required']);
+            'message'=>'required'
+        ]);
 
-        if ($validator->fails()){
-            fail("Please Fill All Inputs");
-            return redirect()->back();
-        }
         Mail::to($request->email)->send(new ReplyMail($request->subject,$request->message));
         success("Mail Sent Successfully !!");
-        return redirect()->route('order_contact.index');
+        return redirect()->route('contact.index');
     }
 
     public function destroy($id){
         $contact=Contact::findOrFail($id);
-        if ($contact->for == OWNER && auth()->user()->id == $contact->user_id){
+        if ($contact->for == ADMIN && auth()->user()->role == ADMIN){
             $contact->delete();
             success();
         }else{
             fail();
         }
-        return redirect()->route('order_contact.index');
+        return redirect()->route('contact.index');
     }
-
     public function update($id){
         $contact=Contact::findOrFail($id);
         if ($contact->status == 'read')
@@ -55,6 +47,6 @@ class OrderContactController extends Controller
 
         $contact->save();
         success();
-        return redirect()->route('order_contact.index');
+        return redirect()->route('contact.index');
     }
 }

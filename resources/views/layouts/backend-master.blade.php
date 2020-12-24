@@ -161,9 +161,9 @@ desired effect
                 <li class="{{inTheCurrentRoute('dashboard')}}"><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
                  @if(auth()->user()->role == ADMIN)
-                    <li class="{{inTheCurrentRoute('seller/*')}}"><a href="{{route('seller.index')}}"><i class="fa fa-user-circle"></i> <span>Owners</span></a></li>
+                    <li class="{{inTheCurrentRoute('owners/*')}}"><a href="{{route('owner.index')}}"><i class="fa fa-user-circle"></i> <span>Owners</span></a></li>
                     <li class="{{inTheCurrentRoute('customer.index')}}"><a href="{{route('customer.index')}}"><i class="fa fa-group"></i> <span>Customers</span></a></li>
-                    <li class="{{inTheCurrentRoute('products.all')}}"><a href="{{route('products.all')}}"><i class="fa fa-building-o"></i> <span>Real Estates</span></a></li>
+                    <li class="{{inTheCurrentRoute('real-estate.all')}}"><a href="{{route('real-estate.all')}}"><i class="fa fa-building-o"></i> <span>Real Estates</span></a></li>
                     <li class="{{inTheCurrentRoute('plans.index')}}"><a href="{{route('plans.index')}}"><i class="fa fa-money"></i> <span>Plans</span></a></li>
                     <li class="{{inTheCurrentRoute('plan-orders/*')}}"><a href="{{route('planOrders.index')}}"><i class="fa fa-plus-circle"></i> <span>New Plan Requests</span></a></li>
                     <li class="{{inTheCurrentRoute('contacts/*')}}"><a href="{{route('contact.index')}}"><i class="fa fa-support"></i> <span>Contacts</span></a></li>

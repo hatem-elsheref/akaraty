@@ -100,7 +100,7 @@ class ProcessController extends Controller
                 'plan_id'       =>$plan->id,
                 'transaction_id'=>$transaction->id,
                 'status'        =>PENDING,
-                'request_is_expired'=>false
+//                'request_is_expired'=>false
             ];
             $order->create($orderDetails);
             $user->tmp_key='undefined'; // to granted that key will no be repeated

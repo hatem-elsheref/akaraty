@@ -23,6 +23,13 @@
                         @method('PUT')
                         <div class="box-body">
                             <div class="form-group">
+                                <label for="title">Title</label>
+                                <input  type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder=" Enter The Plan Title" value="{{$plan->title}}" >
+                                @error('title')
+                                <div class="invalid-feedback text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label for="name">Name</label>
                                 <input  type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder=" Enter The Plan Name" value="{{$plan->name}}" >
                                 @error('name')

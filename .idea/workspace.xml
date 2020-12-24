@@ -2,36 +2,142 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3040231-a4eb-4f39-a4b9-83e69b7c9408" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderContactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/orders/archive.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlanController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PlansOrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/for_admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderContactController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RealEstateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RealEstateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/PageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/ProcessController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/ProcessController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/RealEstateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/RealEstateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/SupportMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/SupportMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_19_201257_create_contacts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_19_201257_create_contacts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_23_020715_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_23_020715_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/messages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/orders/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/all.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/search-custom.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/products/show.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/real_estates/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/checkout-real-estate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/checkout-real-estate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/ApproveThePlanEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/ApproveThePlanEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Subscribe.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subscribe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_21_061603_create_subscribes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_061603_create_subscribes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/contact/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/contact/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/owner/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owner/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/plans/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/plans/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/plans/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/plans/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/plans/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/plans/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sellers-view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/owners-view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/subscribers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/subscribers.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend-master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail/support.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/support.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/owner.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/owner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/gSprdFpKJs0yLt9YvvoUKUpzoQcz1tlqP9yURneK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/4BbaVLphgkO1c2BeJtb8Hi71L2qT3nS78oUfyoO5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2012_12_01_191000_create_plans_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_01_181825_create_orders_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_01_185449_create_categories_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_01_185507_create_products_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_01_185510_create_images_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_01_185640_create_order_items_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_05_000331_create_transactions_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_05_004955_create_countries_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_05_172503_create_subscribes_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_07_211751_create_app_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_08_000055_create_news_letter_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_08_004645_create_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_08_185631_create_contacts_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_08_212343_create_product_rates_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/2020_12_11_002320_create_order_contacts_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/all.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/checkout-plan.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/checkout-product.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/CategoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/ContactController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/CustomerController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/OrderContactController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/OrderController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/PlanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/PlansOrderController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/ProductController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/controllers/SellerController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-about-us.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-builders.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-listing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-services.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate-single-property.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/demo-real-estate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/forms-real-estate-enquiry.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate-enquiry.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/css/font-icons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/css/icon-files/realestate.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/css/icon-files/realestate.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/css/icon-files/realestate.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/css/icon-files/realestate.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/fonts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/about-us/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/about-us/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/about-us/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/about-us/page-title.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/builders/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/builders/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/builders/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/builders/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/builders/page-title.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/cities/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/contact/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/contact/page-title.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/hero/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/hero/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/hero/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/hero/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/hero/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/items/page-title.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/logo@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/single-condo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/images/user.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate/real-estate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate1-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate2-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate3-thumb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/real-estate3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/design/rs-demo-premium-real-estate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/Cart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/Category.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/Item.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/Order.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/OrderContacts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/OrderItem.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/Product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/ProductRate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/Subscribe.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/models/Transaction.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +309,7 @@
       <workItem from="1608453256153" duration="671000" />
       <workItem from="1608498455972" duration="31438000" />
       <workItem from="1608585582733" duration="46877000" />
-      <workItem from="1608755680114" duration="28414000" />
+      <workItem from="1608755680114" duration="38705000" />
     </task>
     <servers />
   </component>
@@ -219,10 +325,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="158" y="25" width="1584" height="1051" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608519295826" />
-    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608781751752">
+    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608786678846">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608781751752" />
+    <state x="693" y="310" width="524" height="480" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608786678846" />
     <state x="743" y="310" width="424" height="480" key="FileChooserDialogImpl" timestamp="1608627038868">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
@@ -231,10 +337,10 @@
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
     <state x="433" y="249" width="657" height="602" key="NewPhpClassDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608328936230" />
-    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog" timestamp="1608773098763">
+    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog" timestamp="1608788859171">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
-    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608773098763" />
+    <state x="755" y="473" width="359" height="159" key="NewPhpFileDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1608788859171" />
     <state x="624" y="254" key="run.anything.popup" timestamp="1608781181939">
       <screen x="0" y="25" width="1920" height="1055" />
     </state>
